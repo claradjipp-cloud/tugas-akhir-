@@ -1,0 +1,166 @@
+/* ==========================================
+   1. VARIABEL WARNA & TIPOGRAFI (ROOT)
+   ========================================== */
+:root {
+  --color-paper: #FAF8F5;
+  --color-cream: #F4EFE9;
+  --color-espresso: #2C1A12;
+  --color-roast: #4A2E20;
+  --color-chestnut: #6F4E37;
+  --color-bronze: #C59B6D;
+  --color-latte: #EFE6DC;
+  --color-ink: #1E1510;
+  --color-muted: #6E5D52;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ==========================================
+   2. GLOBAL STYLES, SELECTION & SCROLLBAR
+   ========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-chestnut);
+  color: var(--color-paper);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bronze);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-chestnut);
+}
+
+/* ==========================================
+   3. KELAS UTILITAS FONT
+   ========================================== */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* ==========================================
+   4. KELAS WARNA LATAR (BACKGROUND)
+   ========================================== */
+.bg-paper { background-color: var(--color-paper); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-espresso { background-color: var(--color-espresso); }
+.bg-roast { background-color: var(--color-roast); }
+.bg-chestnut { background-color: var(--color-chestnut); }
+.bg-bronze { background-color: var(--color-bronze); }
+.bg-latte { background-color: var(--color-latte); }
+.bg-ink { background-color: var(--color-ink); }
+.bg-muted { background-color: var(--color-muted); }
+
+/* Background dengan Opasitas */
+.bg-paper\/95 { background-color: rgba(250, 248, 245, 0.95); }
+.bg-espresso\/90 { background-color: rgba(44, 26, 18, 0.9); }
+.bg-espresso\/70 { background-color: rgba(44, 26, 18, 0.7); }
+.bg-espresso\/60 { background-color: rgba(44, 26, 18, 0.6); }
+.bg-roast\/80 { background-color: rgba(74, 46, 32, 0.8); }
+.bg-roast\/70 { background-color: rgba(74, 46, 32, 0.7); }
+
+/* Hover & Focus Background */
+.hover\:bg-espresso:hover { background-color: var(--color-espresso); }
+.hover\:bg-roast:hover { background-color: var(--color-roast); }
+.hover\:bg-latte:hover { background-color: var(--color-latte); }
+.hover\:bg-bronze\/90:hover { background-color: rgba(197, 155, 109, 0.9); }
+
+/* ==========================================
+   5. KELAS WARNA TEKS (TEXT COLOR)
+   ========================================== */
+.text-paper { color: var(--color-paper); }
+.text-cream { color: var(--color-cream); }
+.text-espresso { color: var(--color-espresso); }
+.text-roast { color: var(--color-roast); }
+.text-chestnut { color: var(--color-chestnut); }
+.text-bronze { color: var(--color-bronze); }
+.text-latte { color: var(--color-latte); }
+.text-ink { color: var(--color-ink); }
+.text-muted { color: var(--color-muted); }
+
+/* Text dengan Opasitas */
+.text-paper\/90 { color: rgba(250, 248, 245, 0.9); }
+.text-paper\/80 { color: rgba(250, 248, 245, 0.8); }
+.text-paper\/75 { color: rgba(250, 248, 245, 0.75); }
+.text-paper\/70 { color: rgba(250, 248, 245, 0.7); }
+.text-paper\/65 { color: rgba(250, 248, 245, 0.65); }
+.text-paper\/60 { color: rgba(250, 248, 245, 0.6); }
+.text-paper\/50 { color: rgba(250, 248, 245, 0.5); }
+
+/* Hover Text */
+.hover\:text-paper:hover { color: var(--color-paper); }
+.hover\:text-espresso:hover { color: var(--color-espresso); }
+.hover\:text-chestnut:hover { color: var(--color-chestnut); }
+.group:hover .group-hover\:text-chestnut { color: var(--color-chestnut); }
+
+/* Placeholder & Accent */
+.placeholder-muted::placeholder { color: var(--color-muted); }
+.accent-espresso { accent-color: var(--color-espresso); }
+
+/* ==========================================
+   6. KELAS WARNA GARIS TEPI (BORDER)
+   ========================================== */
+.border-paper { border-color: var(--color-paper); }
+.border-cream { border-color: var(--color-cream); }
+.border-espresso { border-color: var(--color-espresso); }
+.border-roast { border-color: var(--color-roast); }
+.border-chestnut { border-color: var(--color-chestnut); }
+.border-bronze { border-color: var(--color-bronze); }
+.border-latte { border-color: var(--color-latte); }
+
+/* Border dengan Opasitas */
+.border-espresso\/30 { border-color: rgba(44, 26, 18, 0.3); }
+.border-espresso\/25 { border-color: rgba(44, 26, 18, 0.25); }
+.border-espresso\/20 { border-color: rgba(44, 26, 18, 0.2); }
+.border-espresso\/15 { border-color: rgba(44, 26, 18, 0.15); }
+.border-espresso\/10 { border-color: rgba(44, 26, 18, 0.1); }
+.border-espresso\/5 { border-color: rgba(44, 26, 18, 0.05); }
+
+.border-bronze\/50 { border-color: rgba(197, 155, 109, 0.5); }
+.border-bronze\/40 { border-color: rgba(197, 155, 109, 0.4); }
+.border-bronze\/30 { border-color: rgba(197, 155, 109, 0.3); }
+.border-bronze\/25 { border-color: rgba(197, 155, 109, 0.25); }
+.border-bronze\/20 { border-color: rgba(197, 155, 109, 0.2); }
+.border-bronze\/15 { border-color: rgba(197, 155, 109, 0.15); }
+
+/* Hover & Focus Border */
+.hover\:border-espresso:hover { border-color: var(--color-espresso); }
+.hover\:border-bronze\/60:hover { border-color: rgba(197, 155, 109, 0.6); }
+.focus\:border-chestnut:focus { border-color: var(--color-chestnut); }
+
+/* Gradient Hero Overlay */
+.from-espresso\/90 {
+  --tw-gradient-from: rgba(44, 26, 18, 0.9);
+  --tw-gradient-to: rgba(44, 26, 18, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-espresso\/20 {
+  --tw-gradient-to: rgba(44, 26, 18, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(44, 26, 18, 0.2), var(--tw-gradient-to);
+}

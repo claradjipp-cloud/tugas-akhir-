@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starbucks® Coffee Indonesia — Roasters, Reserve & Café Order</title>
+  
+  <!-- Google Fonts: Fraunces (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Layout & External Theme CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans antialiased selection:bg-chestnut selection:text-paper">
+
+  <!-- Announcement Bar -->
+  <div class="bg-espresso text-paper text-xs tracking-widest uppercase py-2.5 px-4 text-center font-medium border-b border-bronze/20">
+    Gratis Ongkir ke Seluruh Indonesia untuk Pembelian Kopi & Menu di Atas <span class="text-bronze font-semibold">Rp 250.000</span>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b border-espresso/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <!-- Brand Logo (Official Starbucks Siren Logo) -->
+<a href="#" class="flex items-center gap-3.5 group">
+  <div class="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" 
+      alt="Starbucks Coffee Logo" 
+      class="w-full h-full object-contain"
+    />
+  </div>
+  <div>
+    <span class="font-serif text-xl font-bold tracking-tight text-espresso block leading-none">STARBUCKS®</span>
+    <span class="text-[10px] uppercase tracking-[0.25em] text-chestnut font-semibold mt-1 block">Indonesia Roastery</span>
+  </div>
+</a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink">
+          <a href="#katalog" class="hover:text-chestnut transition-colors">Biji Kopi</a>
+          <a href="#pesan-menu" class="text-chestnut font-semibold hover:text-espresso transition-colors">Pesan Makanan & Minuman</a>
+          <a href="#panduan-seduh" class="hover:text-chestnut transition-colors">Panduan Seduh</a>
+          <a href="#langganan" class="hover:text-chestnut transition-colors">Reserve Club</a>
+        </nav>
+
+        <!-- Search & Cart Actions -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <div class="relative hidden sm:block">
+            <input 
+              type="text" 
+              id="searchInput"
+              placeholder="Cari biji kopi, rasa..." 
+              class="bg-cream border border-espresso/15 rounded-full pl-9 pr-4 py-1.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-chestnut w-44 lg:w-56 transition-all"
+            />
+            <svg class="w-4 h-4 text-muted absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+
+          <button 
+            onclick="toggleCart()" 
+            class="relative flex items-center gap-2 bg-espresso hover:bg-roast text-paper px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-sm"
+          >
+            <svg class="w-4 h-4 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span class="hidden sm:inline">Keranjang</span>
+            <span id="cartBadge" class="bg-bronze text-espresso text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Editorial Hero Section -->
+  <section class="relative overflow-hidden border-b border-espresso/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Typography -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-latte border border-bronze/40 text-roast text-xs font-semibold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-chestnut"></span>
+            Single-Origin & Handcrafted Café
+          </div>
+          
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-espresso leading-[1.1] tracking-tight">
+            Dari Pegunungan Nusantara, Disangrai untuk <span class="italic font-normal text-chestnut">Kesempurnaan.</span>
+          </h1>
+          
+          <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl">
+            Nikmati kekayaan biji kopi pilihan Indonesia maupun minuman racikan barista segar dan bakery hangat yang dapat Anda pesan langsung secara daring.
+          </p>
+          
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#pesan-menu" class="bg-espresso hover:bg-roast text-paper px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all shadow-md">
+              Pesan Makanan & Minuman
+            </a>
+            <a href="#katalog" class="border border-espresso/30 hover:border-espresso text-espresso px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-colors">
+              Koleksi Biji Kopi
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-espresso/10 max-w-md">
+            <div>
+              <p class="font-serif text-2xl font-bold text-espresso">100%</p>
+              <p class="text-xs text-muted uppercase tracking-wider mt-0.5">Arabika Pilihan</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl font-bold text-espresso">Barista</p>
+              <p class="text-xs text-muted uppercase tracking-wider mt-0.5">Racikan Segar</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl font-bold text-espresso">Fresh</p>
+              <p class="text-xs text-muted uppercase tracking-wider mt-0.5">Bakery Setiap Hari</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Editorial Card -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-2xl overflow-hidden bg-roast shadow-2xl border border-bronze/30 aspect-[4/3]">
+            <img 
+              src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1200&q=85" 
+              alt="Starbucks Coffee Pour Over & Whole Beans" 
+              class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/20 to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-paper">
+              <span class="text-xs uppercase tracking-[0.2em] text-bronze font-semibold">Roaster's Pick</span>
+              <h3 class="font-serif text-2xl font-semibold mt-1">Sumatra Single-Origin Dark Roast</h3>
+              <p class="text-sm text-paper/80 mt-1">Aroma rempah hangat, tekstur penuh (full-bodied), dengan sentuhan herbal khas tanah vulkanik Sumatra.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog & Filter Section -->
+  <section id="katalog" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="text-xs uppercase tracking-[0.2em] text-chestnut font-bold">Koleksi Pilihan</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-espresso mt-1">Biji Kopi & Perlengkapan Seduh</h2>
+      </div>
+
+      <!-- Filter Pills -->
+      <div id="filterButtons" class="flex flex-wrap gap-2">
+        <button data-filter="all" class="filter-btn active bg-espresso text-paper px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+          Semua Produk
+        </button>
+        <button data-filter="Dark Roast" class="filter-btn bg-cream hover:bg-latte text-espresso border border-espresso/15 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+          Dark Roast
+        </button>
+        <button data-filter="Medium Roast" class="filter-btn bg-cream hover:bg-latte text-espresso border border-espresso/15 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+          Medium Roast
+        </button>
+        <button data-filter="Blonde Roast" class="filter-btn bg-cream hover:bg-latte text-espresso border border-espresso/15 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+          Blonde Roast
+        </button>
+        <button data-filter="Merchandise" class="filter-btn bg-cream hover:bg-latte text-espresso border border-espresso/15 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all">
+          Merchandise & VIA
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Input -->
+    <div class="mb-8 sm:hidden">
+      <input 
+        type="text" 
+        id="mobileSearchInput"
+        placeholder="Cari kopi (misal: Sumatra, Caramel, Pike Place)..." 
+        class="w-full bg-cream border border-espresso/20 rounded-full px-4 py-2.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-chestnut"
+      />
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Products rendered dynamically via JavaScript -->
+    </div>
+  </section>
+
+  <!-- INTERACTIVE FOOD & BEVERAGE ORDER FORM SECTION -->
+  <section id="pesan-menu" class="bg-cream border-y border-espresso/15 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-chestnut font-bold">Starbucks® Café Order</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-espresso mt-1">
+          Pesan Makanan & Minuman
+        </h2>
+        <p class="text-muted text-sm sm:text-base mt-2 leading-relaxed">
+          Kustomisasi minuman handcrafted favorit Anda—mulai dari ukuran gelas, pilihan susu nabati, hingga tambahan espresso shot—lengkap dengan pendamping pastry hangat dari dapur kami.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        
+        <!-- Left Column: Interactive Form (7 cols) -->
+        <form id="cafeOrderForm" class="lg:col-span-7 bg-paper rounded-3xl p-6 sm:p-8 border border-espresso/15 shadow-lg space-y-8">
+          
+          <!-- Step 1: Customer & Order Type -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 border-b border-espresso/10 pb-3">
+              <span class="w-7 h-7 rounded-full bg-espresso text-bronze font-serif font-bold text-sm flex items-center justify-center">1</span>
+              <h3 class="font-serif text-xl font-bold text-espresso">Informasi Pemesan & Layanan</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="customerName" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Nama Pemesan *</label>
+                <input 
+                  type="text" 
+                  id="customerName" 
+                  required
+                  placeholder="Contoh: Bima Pratama"
+                  class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-chestnut"
+                />
+              </div>
+
+              <div>
+                <label for="orderType" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Tipe Layanan</label>
+                <select 
+                  id="orderType" 
+                  onchange="toggleOrderLocation()"
+                  class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-chestnut"
+                >
+                  <option value="Dine-In (Makan di Tempat)">Dine-In (Makan di Tempat)</option>
+                  <option value="Takeaway (Bawa Pulang)">Takeaway (Bawa Pulang)</option>
+                  <option value="Delivery (Antar ke Alamat)">Delivery (Antar ke Alamat)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Table / Address Field -->
+            <div id="locationFieldContainer">
+              <label id="locationLabel" for="orderLocation" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Nomor Meja</label>
+              <input 
+                type="text" 
+                id="orderLocation" 
+                placeholder="Contoh: Meja 07 — Lantai 1"
+                class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-chestnut"
+              />
+            </div>
+          </div>
+
+          <!-- Step 2: Handcrafted Beverage Customization -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-espresso/10 pb-3">
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-full bg-espresso text-bronze font-serif font-bold text-sm flex items-center justify-center">2</span>
+                <h3 class="font-serif text-xl font-bold text-espresso">Pilih & Kustomisasi Minuman</h3>
+              </div>
+              <span class="text-xs text-chestnut font-semibold">Handcrafted</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+              <div class="sm:col-span-8">
+                <label for="drinkSelect" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Menu Minuman</label>
+                <select id="drinkSelect" onchange="updateOrderSummary()" class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-chestnut">
+                  <option value="0" data-name="Tidak Memesan Minuman">— Tidak Memesan Minuman —</option>
+                  <option value="58000" data-name="Caramel Macchiato" selected>Caramel Macchiato — Rp 58.000</option>
+                  <option value="54000" data-name="Caffè Latte">Caffè Latte — Rp 54.000</option>
+                  <option value="59000" data-name="Asian Dolce Latte">Asian Dolce Latte — Rp 59.000</option>
+                  <option value="62000" data-name="Java Chip Frappuccino®">Java Chip Frappuccino® — Rp 62.000</option>
+                  <option value="56000" data-name="Cold Brew Vanilla Sweet Cream">Cold Brew Vanilla Sweet Cream — Rp 56.000</option>
+                  <option value="60000" data-name="Green Tea Cream Frappuccino®">Green Tea Cream Frappuccino® — Rp 60.000</option>
+                </select>
+              </div>
+
+              <div class="sm:col-span-4">
+                <label for="drinkQty" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Jumlah Gelas</label>
+                <div class="flex items-center bg-cream border border-espresso/20 rounded-xl overflow-hidden">
+                  <button type="button" onclick="adjustFormQty('drinkQty', -1)" class="px-3.5 py-2.5 text-espresso font-bold hover:bg-latte">−</button>
+                  <input type="number" id="drinkQty" value="1" min="1" max="20" readonly class="w-full text-center bg-transparent text-sm font-bold text-espresso focus:outline-none" />
+                  <button type="button" onclick="adjustFormQty('drinkQty', 1)" class="px-3.5 py-2.5 text-espresso font-bold hover:bg-latte">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Beverage Options Grid -->
+            <div id="drinkCustomOptions" class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div>
+                <label for="drinkSize" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Ukuran Gelas</label>
+                <select id="drinkSize" onchange="updateOrderSummary()" class="w-full bg-cream border border-espresso/20 rounded-xl px-3 py-2 text-sm text-ink focus:outline-none focus:border-chestnut">
+                  <option value="0" data-label="Tall (12 oz)">Tall (Standar)</option>
+                  <option value="5000" data-label="Grande (16 oz)">Grande (+Rp 5.000)</option>
+                  <option value="9000" data-label="Venti (20 oz)">Venti (+Rp 9.000)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="drinkTemp" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Penyajian</label>
+                <select id="drinkTemp" onchange="updateOrderSummary()" class="w-full bg-cream border border-espresso/20 rounded-xl px-3 py-2 text-sm text-ink focus:outline-none focus:border-chestnut">
+                  <option value="Iced (Dingin)">Iced (Dingin)</option>
+                  <option value="Hot (Panas)">Hot (Panas)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="drinkMilk" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Pilihan Susu</label>
+                <select id="drinkMilk" onchange="updateOrderSummary()" class="w-full bg-cream border border-espresso/20 rounded-xl px-3 py-2 text-sm text-ink focus:outline-none focus:border-chestnut">
+                  <option value="0" data-label="Fresh Milk">Fresh Milk (Standar)</option>
+                  <option value="12000" data-label="Oat Milk">Oat Milk (+Rp 12.000)</option>
+                  <option value="10000" data-label="Soy Milk">Soy Milk (+Rp 10.000)</option>
+                  <option value="12000" data-label="Almond Milk">Almond Milk (+Rp 12.000)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Sugar & Extra Shot -->
+            <div id="drinkExtrasRow" class="flex flex-wrap items-center justify-between gap-4 bg-cream p-3.5 rounded-xl border border-espresso/10">
+              <div class="flex items-center gap-3">
+                <label for="sugarLevel" class="text-xs font-bold text-espresso uppercase tracking-wider">Tingkat Gula:</label>
+                <select id="sugarLevel" onchange="updateOrderSummary()" class="bg-paper border border-espresso/15 rounded-lg px-2.5 py-1 text-xs font-medium text-espresso focus:outline-none">
+                  <option value="Normal Sweet">Normal Sweet (100%)</option>
+                  <option value="Less Sweet">Less Sweet (50%)</option>
+                  <option value="No Sugar">No Sugar (0%)</option>
+                </select>
+              </div>
+
+              <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-semibold text-espresso">
+                <input type="checkbox" id="extraShot" onchange="updateOrderSummary()" class="w-4 h-4 accent-espresso rounded" />
+                <span>Tambah Extra Espresso Shot (+Rp 8.000)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Bakery & Food Selection -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-espresso/10 pb-3">
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-full bg-espresso text-bronze font-serif font-bold text-sm flex items-center justify-center">3</span>
+                <h3 class="font-serif text-xl font-bold text-espresso">Pilih Makanan & Bakery</h3>
+              </div>
+              <span class="text-xs text-chestnut font-semibold">Freshly Baked</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+              <div class="sm:col-span-8">
+                <label for="foodSelect" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Menu Makanan / Pastry</label>
+                <select id="foodSelect" onchange="updateOrderSummary()" class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-chestnut">
+                  <option value="0" data-name="Tidak Memesan Makanan">— Tidak Memesan Makanan —</option>
+                  <option value="34000" data-name="Almond Croissant" selected>Almond Croissant — Rp 34.000</option>
+                  <option value="32000" data-name="Classic Cinnamon Roll">Classic Cinnamon Roll — Rp 32.000</option>
+                  <option value="48000" data-name="Smoked Beef & Cheese Croissant">Smoked Beef & Cheese Croissant — Rp 48.000</option>
+                  <option value="45000" data-name="New York Cheesecake">New York Cheesecake — Rp 45.000</option>
+                  <option value="36000" data-name="Chocolate Chip Walnut Cookie">Chocolate Chip Walnut Cookie — Rp 36.000</option>
+                  <option value="52000" data-name="Tuna Puff & Truffle Mayo">Tuna Puff & Truffle Mayo — Rp 52.000</option>
+                </select>
+              </div>
+
+              <div class="sm:col-span-4">
+                <label for="foodQty" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Jumlah Porsi</label>
+                <div class="flex items-center bg-cream border border-espresso/20 rounded-xl overflow-hidden">
+                  <button type="button" onclick="adjustFormQty('foodQty', -1)" class="px-3.5 py-2.5 text-espresso font-bold hover:bg-latte">−</button>
+                  <input type="number" id="foodQty" value="1" min="1" max="20" readonly class="w-full text-center bg-transparent text-sm font-bold text-espresso focus:outline-none" />
+                  <button type="button" onclick="adjustFormQty('foodQty', 1)" class="px-3.5 py-2.5 text-espresso font-bold hover:bg-latte">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <label class="inline-flex items-center gap-2 cursor-pointer text-xs font-semibold text-espresso">
+                <input type="checkbox" id="warmUpFood" checked onchange="updateOrderSummary()" class="w-4 h-4 accent-espresso rounded" />
+                <span>Hangatkan Makanan Sebelum Disajikan (Warmed Up)</span>
+              </label>
+            </div>
+
+            <div>
+              <label for="orderNotes" class="block text-xs uppercase tracking-wider font-bold text-espresso mb-1.5">Catatan Khusus Barista (Opsional)</label>
+              <textarea 
+                id="orderNotes" 
+                rows="2" 
+                placeholder="Contoh: Es batu sedikit saja, ekstra tisu, atau saus dipisah..."
+                class="w-full bg-cream border border-espresso/20 rounded-xl px-4 py-2.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-chestnut"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Form Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <button 
+              type="button" 
+              onclick="addCafeOrderToCart()" 
+              class="flex-1 bg-roast hover:bg-espresso text-paper font-semibold py-3.5 px-6 rounded-full text-sm transition-colors shadow-sm"
+            >
+              + Masukkan ke Keranjang
+            </button>
+            <button 
+              type="submit" 
+              class="flex-1 bg-espresso hover:bg-roast text-bronze border border-bronze/40 font-bold py-3.5 px-6 rounded-full text-sm transition-colors shadow-md"
+            >
+              Pesan Sekarang (Direct Order)
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Right Column: Live Order Summary & Queue Receipt (5 cols) -->
+        <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+          
+          <!-- Live Order Summary Card -->
+          <div class="bg-espresso text-paper rounded-3xl p-6 sm:p-8 border border-bronze/30 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-bronze/20 pb-4">
+              <div>
+                <span class="text-[11px] uppercase tracking-[0.2em] text-bronze font-semibold">Ringkasan Pesanan</span>
+                <h3 class="font-serif text-2xl font-semibold text-paper mt-0.5">Estimasi Biaya</h3>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-roast border border-bronze/40 flex items-center justify-center text-bronze">
+                ☕
+              </div>
+            </div>
+
+            <!-- Dynamic Breakdown List -->
+            <div id="liveSummaryItems" class="space-y-4 text-sm">
+              <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Total Section -->
+            <div class="border-t border-bronze/20 pt-4 space-y-2">
+              <div class="flex justify-between text-xs text-paper/70">
+                <span>Pajak Restoran (PB1 10%)</span>
+                <span id="summaryTax">Rp 0</span>
+              </div>
+              <div class="flex justify-between items-baseline pt-1">
+                <span class="text-sm font-medium text-paper/90">Total Pembayaran</span>
+                <span id="summaryTotal" class="font-serif text-2xl font-bold text-bronze">Rp 0</span>
+              </div>
+            </div>
+
+            <div class="bg-roast/80 rounded-xl p-3.5 border border-bronze/20 text-xs text-paper/80 leading-relaxed">
+              💡 <strong>Info Barista:</strong> Pesanan Anda akan langsung diproses segera setelah konfirmasi diterima.
+            </div>
+          </div>
+
+          <!-- Instant Order Confirmation Ticket (Hidden until submitted) -->
+          <div id="directReceiptCard" class="hidden bg-paper rounded-3xl p-6 border-2 border-chestnut shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-dashed border-espresso/25 pb-3">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-chestnut">Struk Antrean Barista</span>
+                <h4 id="receiptCustomer" class="font-serif text-lg font-bold text-espresso"></h4>
+              </div>
+              <span id="receiptQueueNumber" class="bg-espresso text-bronze font-serif font-bold text-lg px-3.5 py-1 rounded-xl">
+                #SB-104
+              </span>
+            </div>
+            <div id="receiptDetails" class="text-xs text-ink space-y-1.5 leading-relaxed"></div>
+            <div class="pt-2 border-t border-espresso/10 flex items-center justify-between text-xs">
+              <span class="text-chestnut font-semibold">✓ Pesanan Diterima Dapur & Barista</span>
+              <button onclick="document.getElementById('directReceiptCard').classList.add('hidden')" class="text-muted hover:text-espresso underline">Tutup</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Brewing Guide Section -->
+  <section id="panduan-seduh" class="bg-paper border-b border-espresso/10 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden border border-espresso/15 shadow-lg aspect-[4/5] relative">
+            <img 
+              src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85" 
+              alt="Panduan Seduh Manual V60" 
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4 bg-espresso text-bronze text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+              Jurnal Seduh • 4 Menit
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs uppercase tracking-[0.2em] text-chestnut font-bold">Panduan Barista Starbucks®</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-espresso leading-tight">
+            Cara Menyeduh Pour-Over V60 untuk Menonjolkan Karakter Single-Origin
+          </h2>
+          <p class="text-muted leading-relaxed">
+            Metode tuang manual memberikan kendali penuh atas suhu, waktu ekstraksi, dan kejernihan rasa—sangat ideal untuk biji kopi seperti <strong class="text-espresso">Kenya</strong> atau <strong class="text-espresso">Pike Place® Roast</strong>.
+          </p>
+
+          <!-- Ratio Specs -->
+          <div class="grid grid-cols-3 gap-4 bg-cream p-5 rounded-xl border border-espresso/10">
+            <div>
+              <span class="text-xs text-muted uppercase tracking-wider block">Dosis Kopi</span>
+              <span class="font-serif text-xl font-bold text-espresso">20 gram</span>
+              <span class="text-xs text-chestnut block">Gilingan Medium-Fine</span>
+            </div>
+            <div>
+              <span class="text-xs text-muted uppercase tracking-wider block">Air Panas</span>
+              <span class="font-serif text-xl font-bold text-espresso">320 ml</span>
+              <span class="text-xs text-chestnut block">Suhu 92°C – 94°C</span>
+            </div>
+            <div>
+              <span class="text-xs text-muted uppercase tracking-wider block">Total Waktu</span>
+              <span class="font-serif text-xl font-bold text-espresso">02:45</span>
+              <span class="text-xs text-chestnut block">Rasio 1 : 16</span>
+            </div>
+          </div>
+
+          <!-- Step-by-step -->
+          <ol class="space-y-3 text-sm text-ink">
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-roast text-paper font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+              <span><strong>Bilas Kertas Filter:</strong> Basahi filter V60 dengan air panas untuk menghilangkan aroma kertas dan menghangatkan server.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-roast text-paper font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <span><strong>Fase Blooming (00:00 – 00:40):</strong> Tuang 40 ml air secara melingkar hingga seluruh bubuk kopi basah, lalu diamkan 40 detik agar gas CO₂ terlepas.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-roast text-paper font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <span><strong>Tuangan Utama (00:40 – 02:15):</strong> Tuang sisa air secara perlahan dalam dua tahap dengan gerakan spiral stabil hingga mencapai 320 ml.</span>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Banner -->
+  <section id="langganan" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-espresso rounded-3xl p-8 sm:p-12 lg:p-16 text-paper relative overflow-hidden border border-bronze/30 shadow-2xl">
+      <div class="max-w-2xl relative z-10 space-y-5">
+        <span class="inline-block text-xs uppercase tracking-[0.25em] text-bronze font-semibold">
+          Starbucks® Reserve Coffee Club
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+          Kopi Segar Dikirim Rutin ke Pintu Rumah Anda.
+        </h2>
+        <p class="text-paper/80 text-base leading-relaxed">
+          Hemat 15% untuk setiap pengiriman bulanan biji kopi pilihan Anda. Bebas atur jadwal pengiriman, ubah profil sangrai, atau jeda langganan kapan saja.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center gap-4">
+          <button onclick="subscribeClub()" class="bg-bronze hover:bg-bronze/90 text-espresso font-bold px-7 py-3.5 rounded-full text-sm tracking-wide transition-all">
+            Mulai Langganan — Hemat 15%
+          </button>
+          <span id="subscribeFeedback" class="text-sm text-bronze font-medium hidden">
+            ✓ Terima kasih! Tim Starbucks® Reserve Indonesia telah mencatat minat langganan Anda.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-espresso text-paper/80 border-t border-bronze/20 pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-bronze/15">
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-roast border border-bronze/50 flex items-center justify-center text-bronze font-bold">★</div>
+            <span class="font-serif text-xl font-bold text-paper">STARBUCKS® INDONESIA</span>
+          </div>
+          <p class="text-sm text-paper/65 max-w-md leading-relaxed">
+            Menghadirkan pengalaman kopi terbaik dari seluruh dunia, hidangan bakery segar, dan kekayaan cita rasa Nusantara langsung ke meja Anda.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-bronze font-semibold mb-3">Menu & Koleksi</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#pesan-menu" class="hover:text-paper transition-colors">Pesan Makanan & Minuman</a></li>
+            <li><a href="#katalog" class="hover:text-paper transition-colors">Whole Bean Coffee</a></li>
+            <li><a href="#katalog" class="hover:text-paper transition-colors">Single-Origin Sumatra</a></li>
+            <li><a href="#katalog" class="hover:text-paper transition-colors">Tumbler & Merchandise</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-bronze font-semibold mb-3">Layanan</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#panduan-seduh" class="hover:text-paper transition-colors">Panduan Seduh Manual</a></li>
+            <li><a href="#langganan" class="hover:text-paper transition-colors">Starbucks® Reserve Club</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-paper/50 gap-3">
+        <p>© 2026 Starbucks Coffee Indonesia. Seluruh hak cipta dilindungi.</p>
+        <p>Editorial Roastery & Café Experience • Harga dalam Rupiah (IDR)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Detail & Grind Option Modal -->
+  <div id="productModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-espresso/70 backdrop-blur-sm p-4">
+    <div class="bg-paper rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-bronze/30">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-cream aspect-square md:aspect-auto">
+          <img id="modalImage" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div>
+            <div class="flex items-start justify-between gap-2">
+              <span id="modalRoast" class="text-[11px] uppercase tracking-widest font-bold text-chestnut bg-latte px-2.5 py-1 rounded-full"></span>
+              <button onclick="closeModal()" class="text-muted hover:text-espresso p-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+            <h3 id="modalTitle" class="font-serif text-2xl font-bold text-espresso mt-3"></h3>
+            <p id="modalNotes" class="text-xs font-medium text-chestnut mt-1"></p>
+            <p id="modalPrice" class="font-serif text-xl font-bold text-espresso mt-3"></p>
+            <p id="modalDesc" class="text-sm text-muted leading-relaxed mt-3"></p>
+
+            <!-- Grind Option Selector -->
+            <div id="grindSelectorContainer" class="mt-5">
+              <label class="block text-xs uppercase tracking-wider font-bold text-espresso mb-2">Pilih Tingkat Gilingan:</label>
+              <select id="modalGrindSelect" class="w-full bg-cream border border-espresso/20 rounded-lg px-3 py-2 text-sm text-espresso focus:outline-none focus:border-chestnut">
+                <option value="Whole Bean (Biji Utuh)">Whole Bean (Biji Utuh)</option>
+                <option value="Pour Over / V60 (Medium-Fine)">Pour Over / V60 (Medium-Fine)</option>
+                <option value="French Press (Coarse)">French Press (Coarse)</option>
+                <option value="Espresso (Fine)">Espresso (Fine)</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="modalAddBtn" class="w-full bg-espresso hover:bg-roast text-paper font-semibold py-3 rounded-full text-sm transition-colors shadow-md">
+            Tambah ke Keranjang
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-over Shopping Cart Drawer -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 hidden">
+    <div onclick="toggleCart()" class="absolute inset-0 bg-espresso/60 backdrop-blur-xs"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-paper shadow-2xl flex flex-col border-l border-espresso/15">
+      
+      <!-- Cart Header -->
+      <div class="p-6 border-b border-espresso/10 flex items-center justify-between">
+        <div>
+          <h3 class="font-serif text-xl font-bold text-espresso">Keranjang Belanja</h3>
+          <p class="text-xs text-muted">Starbucks® Indonesia Roastery & Café</p>
+        </div>
+        <button onclick="toggleCart()" class="p-2 text-muted hover:text-espresso">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Free Shipping Progress Bar -->
+      <div class="bg-latte px-6 py-3.5 border-b border-bronze/25">
+        <p id="shippingText" class="text-xs font-medium text-espresso mb-2"></p>
+        <div class="w-full h-2 bg-paper rounded-full overflow-hidden">
+          <div id="shippingBar" class="h-full bg-chestnut transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items -->
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Cart Footer -->
+      <div class="p-6 border-t border-espresso/10 bg-cream space-y-4">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-muted">Subtotal</span>
+          <span id="cartSubtotal" class="font-serif text-xl font-bold text-espresso">Rp 0</span>
+        </div>
+        <button onclick="checkoutOrder()" id="checkoutBtn" class="w-full bg-espresso hover:bg-roast disabled:opacity-40 text-paper font-semibold py-3.5 rounded-full text-sm transition-colors shadow-md">
+          Lanjut ke Pembayaran
+        </button>
+        <p id="checkoutMessage" class="text-xs text-center text-roast font-semibold hidden">
+          ✓ Pesanan Anda berhasil dibuat! Terima kasih telah berbelanja di Starbucks® Indonesia.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- External JavaScript Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
